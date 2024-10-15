@@ -7,19 +7,6 @@ const ContactModal = ({ isOpen, onClose }) => {
     setIsModalOpen(isOpen);
   }, [isOpen]);
 
-  useEffect(() => {
-    if (isModalOpen) {
-      // Disable scroll
-      document.body.style.overflow = 'hidden';
-    } else {
-      // Enable scroll
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      // Cleanup: Ensure scrolling is enabled when modal is unmounted
-      document.body.style.overflow = 'unset';
-    };
-  }, [isModalOpen]);
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -28,12 +15,12 @@ const ContactModal = ({ isOpen, onClose }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission logic here
-    closeModal(); // Close the modal after submission if needed
+
+    closeModal();
   };
 
   const handleBackdropClick = (e) => {
-    // Close modal if the backdrop (not the modal itself) is clicked
+
     if (e.target === e.currentTarget) {
       closeModal();
     }
@@ -70,8 +57,12 @@ const ContactModal = ({ isOpen, onClose }) => {
           <h2 className="mt-1 text-3xl font-bold text-transparent bg-gradient-to-r from-pink-600 to-purple-700 bg-clip-text">
             Contact Us
           </h2>
+          <p className='mt-2 font-light text-gray-600 text-md dark:text-gray-400'>
+            Feel free to reach out to me directly via email at <a href="mailto:romanhumagain@gmail.com" className="text-purple-700 underline dark:text-purple-500">romanhumagain@gmail.com</a> or simply fill out the contact form below.
+          </p>
 
-          <p className='mt-1 font-light text-gray-600 text-md dark:text-gray-400'>Please leave valid Email to get reply.</p>
+          <p className='mt-1 font-medium text-gray-600 text-md dark:text-gray-400'>Please leave valid Email to get reply.</p>
+
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -87,7 +78,7 @@ const ContactModal = ({ isOpen, onClose }) => {
 
           <div className="mb-4">
             <label className="font-serif text-gray-800 dark:text-gray-300" htmlFor="message">Message</label>
-            <textarea className="block w-full h-32 p-3 mt-1 bg-gray-200 dark:bg-neutral-700 dark:text-gray-300 focus:outline-none rounded-xl" id="message" required />
+            <textarea className="block w-full p-3 mt-1 bg-gray-200 h-28 dark:bg-neutral-700 dark:text-gray-300 focus:outline-none rounded-xl" id="message" required />
           </div>
 
           <button type="submit" className="w-full px-4 py-2 mt-4 font-semibold text-white transition duration-200 rounded-full text-md bg-gradient-to-r from-pink-600 to-purple-700">
