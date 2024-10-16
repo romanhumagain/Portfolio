@@ -6,10 +6,10 @@ import SectionHeading from "../common/SectionHeading"
 const SkillsPage = () => {
   return (
     <>
-      <div className='flex flex-col items-center justify-center h-full min-h-screen'>
-        <div className='w-full max-w-4xl shadow-lg mt-30 rounded-3xl '>
+      <div className='flex flex-col items-center justify-center h-full min-h-screen px-8'>
+        <div className='w-full max-w-4xl py-8 shadow-lg mt-30 rounded-3xl '>
 
-          <div className="p-8 ">
+          <div className="md:p-4 ">
             <div className="">
               <SectionHeading title={"Skills"} />
             </div>

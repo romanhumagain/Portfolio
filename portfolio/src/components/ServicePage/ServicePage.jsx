@@ -8,12 +8,12 @@ const ServicePage = () => {
   return (
     <>
       <div className='flex flex-col items-center justify-center h-full min-h-screen'>
-        <div className='w-full max-w-3xl px-2 py-8 rounded-lg '>
+        <div className='w-full max-w-3xl p-10 rounded-lg '>
           <SectionHeading title={"Skills & Services"} />
           <div className=''>
             {services.length > 0 && services.map((service, index) => (
               <>
-                <div className={`flex ${index % 2 === 0 ? 'justify-start' : 'justify-end'}`}>
+                <div className={`flex ${index % 2 === 0 ? 'justify-center md:justify-start' : 'justify-center md:justify-end'}`}>
                   <Service service={service} />
                 </div>
 

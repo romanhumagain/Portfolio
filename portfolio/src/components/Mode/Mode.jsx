@@ -1,6 +1,7 @@
 import { MdDarkMode } from "react-icons/md";
 import { CiLight } from "react-icons/ci";
 import { useState, useEffect } from "react";
+import './Mode.css'; 
 
 const Mode = () => {
   const initialMode = localStorage.getItem('portfolio-mode') || 'light';
@@ -23,8 +24,10 @@ const Mode = () => {
   }, [mode]);
 
   return (
-    <p 
-      className="fixed p-3 transition-transform duration-500 rounded-full shadow-lg cursor-pointer right-10 bottom-10 bg-slate-100 hover:scale-110" 
+    <div 
+      className={`fixed p-2 transition-transform duration-500 rounded-full shadow-lg cursor-pointer md:p-3 right-5 bottom-10 md:right-10 md:bottom-12 
+                  ${mode === 'dark' ? 'bg-gradient-to-r from-gray-800 to-gray-400 text-white animate-toggle' : 'bg-gradient-to-r from-slate-200 to-slate-600 text-black animate-toggle'} 
+                  hover:scale-110 hover:shadow-xl`} 
       onClick={toggleMode}
     >
       {mode === "dark" ? (
@@ -32,7 +35,7 @@ const Mode = () => {
       ) : (
         <MdDarkMode className="text-2xl" />
       )}
-    </p>
+    </div>
   );
 };
 

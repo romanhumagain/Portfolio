@@ -12,58 +12,52 @@ import weather_app from '../../assets/images/portfolio/weather-app.png'
 import news_app from '../../assets/images/portfolio/flutter_news_app.jpg'
 
 
-
 const ProjectCard = () => {
   return (
     <>
-      <div className='grid items-center grid-cols-12 gap-5'>
+      <div className='grid grid-cols-12 gap-2 p-6 md:gap-5'>
         <div className='flex flex-col col-span-4 gap-5'>
           <div className=''>
-            <img src={blogify_img} className='transition-transform duration-700 rounded-lg hover:scale-105'></img>
+            <img src={blogify_img} className='transition-transform duration-700 rounded-lg cursor-pointer hover:scale-105'></img>
           </div>
           <div>
-            <img src={task_unity_img} className='transition-transform duration-700 rounded-lg hover:scale-105'></img>
+            <img src={task_unity_img} className='transition-transform duration-700 rounded-lg cursor-pointer hover:scale-105'></img>
           </div>
           <div>
-            <img src={student_management_img} className='transition-transform duration-700 rounded-lg hover:scale-105'></img>
+            <img src={student_management_img} className='transition-transform duration-700 rounded-lg cursor-pointer hover:scale-105'></img>
           </div>
           <div className=''>
-            <img src={taxi_booking_png} className='transition-transform duration-700 rounded-lg hover:scale-105'></img>
+            <img src={taxi_booking_png} className='transition-transform duration-700 rounded-lg cursor-pointer hover:scale-105'></img>
+          </div>
+          <div>
+            <img src={hotel_management_img} className='transition-transform duration-700 rounded-lg cursor-pointer hover:scale-105'></img>
           </div>
 
         </div>
 
-        <div className='flex flex-col col-span-4 gap-5'>
-          <div className='flex gap-2'>
-            <img src={food_delivery_app_img} className='transition-transform duration-700 rounded-lg hover:scale-105' height={75} width={90}></img>
-            <img src={news_app} height={75} className='transition-transform duration-700 rounded-lg hover:scale-105' width={85}></img>
+        <div className='flex flex-col items-center justify-center col-span-4 gap-5 '>
+          <div className='flex flex-col justify-center gap-5 '>
+            <img src={food_delivery_app_img} className='cursor-pointer w-[70px] transition-transform duration-700 rounded-lg h-[136px] hover:scale-105 md:h-48 md:w-24' alt='Food Delivery' />
+            <img src={news_app} className='cursor-pointer w-[68px] transition-transform duration-700 rounded-lg h-[136px] hover:scale-105 md:h-48 md:w-24' alt='News App' />
           </div>
-
-          <div>
-            <img src={techx_img} className='transition-transform duration-700 rounded-lg hover:scale-105'></img>
-          </div>
-          <div>
-            <img src={hotel_management_img} className='transition-transform duration-700 rounded-lg hover:scale-105'></img>
-          </div>
-          <div>
-            <img src={task_unity_img} className='transition-transform duration-700 rounded-lg hover:scale-105'></img>
-          </div>
-
         </div>
 
         <div className='flex flex-col col-span-4 gap-6'>
           <div>
-            <img src={food_ordering_img} className='transition-transform duration-700 rounded-lg hover:scale-105'></img>
+            <img src={food_ordering_img} className='transition-transform duration-700 rounded-lg cursor-pointer hover:scale-105'></img>
           </div>
           <div>
-            <img src={chatbot_img} className='transition-transform duration-700 rounded-lg hover:scale-105'></img>
+            <img src={chatbot_img} className='transition-transform duration-700 rounded-lg cursor-pointer hover:scale-105'></img>
           </div>
 
           <div>
-            <img src={news_web_img} className='transition-transform duration-700 rounded-lg hover:scale-105'></img>
+            <img src={news_web_img} className='transition-transform duration-700 rounded-lg cursor-pointer hover:scale-105'></img>
           </div>
           <div>
-            <img src={weather_app} className='transition-transform duration-700 rounded-lg hover:scale-105'></img>
+            <img src={weather_app} className='transition-transform duration-700 rounded-lg cursor-pointer hover:scale-105'></img>
+          </div>
+          <div>
+            <img src={techx_img} className='transition-transform duration-700 rounded-lg cursor-pointer hover:scale-105'></img>
           </div>
         </div>
 

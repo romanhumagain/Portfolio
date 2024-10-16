@@ -2,25 +2,36 @@ import React, { useEffect, useState } from 'react';
 
 const ContactModal = ({ isOpen, onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(isOpen);
+  const [email, setEmail] = useState('');
+  const [emailError, setEmailError] = useState('');
 
   useEffect(() => {
     setIsModalOpen(isOpen);
   }, [isOpen]);
 
-
   const closeModal = () => {
     setIsModalOpen(false);
     onClose();
+    setEmail(''); 
+    setEmailError(''); 
+  };
+
+  const validateEmail = (email) => {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+    return regex.test(email);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    if (!validateEmail(email)) {
+      setEmailError('Please enter a valid email address.');
+      return;
+    }
+    
     closeModal();
   };
 
   const handleBackdropClick = (e) => {
-
     if (e.target === e.currentTarget) {
       closeModal();
     }
@@ -31,7 +42,7 @@ const ContactModal = ({ isOpen, onClose }) => {
       className={`fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-black bg-opacity-60 duration-300 ${isModalOpen ? "opacity-100 visible" : "opacity-0 invisible"}`}
       onClick={handleBackdropClick}
     >
-      <div className={`max-w-md w-full p-6 bg-white dark:bg-neutral-800 rounded-xl shadow-lg transform transition-transform duration-300 ${isModalOpen ? "translate-y-0" : "-translate-y-20"}`}>
+      <div className={`m-6 w-full max-w-sm sm:max-w-md lg:max-w-md p-6 bg-white dark:bg-neutral-800 rounded-2xl shadow-lg transform transition-transform duration-300 ${isModalOpen ? "translate-y-0" : "-translate-y-20"}`}>
         <button
           type="button"
           className="absolute top-3 right-3.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -54,15 +65,13 @@ const ContactModal = ({ isOpen, onClose }) => {
           <span className="sr-only">Close modal</span>
         </button>
         <div className='mb-6'>
-          <h2 className="mt-1 text-3xl font-bold text-transparent bg-gradient-to-r from-pink-600 to-purple-700 bg-clip-text">
+          <h2 className="mt-1 text-3xl font-bold text-transparent text-start bg-gradient-to-r from-pink-600 to-purple-700 bg-clip-text">
             Contact Us
           </h2>
-          <p className='mt-2 font-light text-gray-600 text-md dark:text-gray-400'>
+          <p className='mt-2 font-light text-gray-600 text-start text-md dark:text-gray-400'>
             Feel free to reach out to me directly via email at <a href="mailto:romanhumagain@gmail.com" className="text-purple-700 underline dark:text-purple-500">romanhumagain@gmail.com</a> or simply fill out the contact form below.
           </p>
-
-          <p className='mt-1 font-medium text-gray-600 text-md dark:text-gray-400'>Please leave valid Email to get reply.</p>
-
+          <p className='mt-1 font-medium text-gray-600 text-start text-md dark:text-gray-400'>Please leave a valid Email to get a reply.</p>
         </div>
 
         <form onSubmit={handleSubmit}>
@@ -73,7 +82,18 @@ const ContactModal = ({ isOpen, onClose }) => {
 
           <div className="mb-4">
             <label className="font-serif text-gray-800 dark:text-gray-300" htmlFor="email">Email</label>
-            <input className="block w-full p-2 mt-1 bg-gray-200 dark:bg-neutral-700 dark:text-gray-300 focus:outline-none rounded-xl" type="email" id="email" required />
+            <input
+              className="block w-full p-2 mt-1 bg-gray-200 dark:bg-neutral-700 dark:text-gray-300 focus:outline-none rounded-xl"
+              type="text"
+              id="email"
+              required
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+                setEmailError(''); 
+              }}
+            />
+            {emailError && <p className="mt-1 text-sm text-red-500">{emailError}</p>} 
           </div>
 
           <div className="mb-4">
