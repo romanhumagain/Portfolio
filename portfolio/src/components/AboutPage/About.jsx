@@ -24,7 +24,6 @@ const About = () => {
           <AboutCards />
         </div>
       </div>
-      <VerticalLine/>
     </>
   );
 };

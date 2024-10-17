@@ -44,7 +44,7 @@ const Navbar = ({ homeRef, aboutRef, skillsRef, expertiseRef, projectsRef, certi
 
   return (
     <>
-      <div className='fixed z-50 flex justify-center w-full max-w-3xl px-2 py-3 my-5 rounded-full shadow-md bg-gradient-to-r from-slate-100 via-slate-200 to-slate-300 dark:from-neutral-700 dark:via-neutral-800 dark:to-neutral-800'>
+      <div className='fixed z-50 flex justify-center w-full max-w-3xl px-3 py-3 my-5 rounded-full shadow-md bg-gradient-to-r from-slate-100 via-slate-200 to-slate-300 dark:from-neutral-700 dark:via-neutral-800 dark:to-neutral-800'>
         <ul className='flex items-center gap-10 font-semibold text-[15px] text-slate-800 dark:text-neutral-300'>
           {['Home', 'About', 'Skills', 'Expertise', 'Projects', 'Certificates'].map((section, index) => {
             const sectionRefs = [homeRef, aboutRef, skillsRef, expertiseRef, projectsRef, certificatesRef];
@@ -65,7 +65,7 @@ const Navbar = ({ homeRef, aboutRef, skillsRef, expertiseRef, projectsRef, certi
             );
           })}
           <li
-            className='px-3 py-1 text-[15px] transition-transform duration-700 rounded-full shadow-sm cursor-pointer bg-gradient-to-r from-pink-600 to-purple-700 text-neutral-300 hover:scale-105'
+            className='px-3 py-[2px] text-[14px] transition-transform duration-700 rounded-full shadow-sm cursor-pointer bg-gradient-to-r from-pink-600 to-purple-700 text-neutral-300 hover:scale-105'
             onClick={handleOpenModal}
           >
             Contact Us

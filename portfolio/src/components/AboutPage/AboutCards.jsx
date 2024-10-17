@@ -4,7 +4,7 @@ import { LiaCertificateSolid } from "react-icons/lia";
 const AboutCards = () => {
   return (
     <>
-      <div className="flex flex-col items-center w-full max-w-md px-6 py-3 transition-transform duration-300 shadow-lg md:max-w-lg hover:shadow-xl bg-slate-300 dark:bg-neutral-800 rounded-xl ">
+      <div className="flex flex-col items-center w-full max-w-md px-6 py-3 transition-transform duration-300 shadow-lg md:max-w-lg hover:shadow-xl bg-slate-200 md:bg-slate-300 dark:bg-neutral-800 rounded-xl ">
         <FaCode className="mb-2 text-[32px] md:text-5xl text-slate-700 dark:text-slate-200" />
 
         <div className='flex items-center mt-1'>
@@ -20,7 +20,7 @@ const AboutCards = () => {
         </p>
       </div>
 
-      <div className="flex flex-col items-center w-full max-w-md px-6 py-3 transition-transform duration-300 shadow-lg md:max-w-lg bg-slate-300 dark:bg-neutral-800 rounded-xl hover:shadow-xl">
+      <div className="flex flex-col items-center w-full max-w-md px-6 py-3 transition-transform duration-300 shadow-lg md:max-w-lg bg-slate-200 md:bg-slate-300 dark:bg-neutral-800 rounded-xl hover:shadow-xl">
         <LiaCertificateSolid className="mb-2 text-[32px] md:text-5xl text-slate-700 dark:text-slate-200" />
 
 

@@ -28,14 +28,14 @@ const CertificateCarousel = () => {
       </div>
 
       <div
-        className="absolute p-2 text-white transition-opacity transform -translate-y-1/2 bg-gray-600 rounded-full cursor-pointer dark:bg-neutral-700 top-1/2 left-5 sm:left-10 hover:bg-opacity-70"
+        className="absolute p-2 text-white transition-opacity transform -translate-y-1/2 bg-gray-500 rounded-full cursor-pointer dark:bg-neutral-700 top-1/2 left-5 sm:left-10 hover:bg-opacity-70"
         onClick={prevSlide}
       >
         <FiChevronLeft size={24} />
       </div>
 
       <div
-        className="absolute p-2 text-white transition-opacity transform -translate-y-1/2 bg-gray-600 rounded-full cursor-pointer dark:bg-neutral-700 top-1/2 right-5 sm:right-10 hover:bg-opacity-70"
+        className="absolute p-2 text-white transition-opacity transform -translate-y-1/2 bg-gray-500 rounded-full cursor-pointer dark:bg-neutral-700 top-1/2 right-5 sm:right-10 hover:bg-opacity-70"
         onClick={nextSlide}
       >
         <FiChevronRight size={24} />
