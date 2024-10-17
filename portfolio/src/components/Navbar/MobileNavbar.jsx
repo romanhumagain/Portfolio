@@ -1,6 +1,6 @@
-// MobileNavbar.js
 import React, { useState } from 'react';
 import ContactModal from '../../modal/ContactModal';
+import { RiMenu3Line, RiCloseLine } from 'react-icons/ri';
 
 const MobileNavbar = ({ homeRef, aboutRef, skillsRef, servicesRef, projectsRef, certificatesRef, scrollToSection }) => {
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
@@ -8,7 +8,7 @@ const MobileNavbar = ({ homeRef, aboutRef, skillsRef, servicesRef, projectsRef, 
 
   const handleOpenModal = () => {
     setIsContactModalOpen(true);
-    setIsMenuOpen(false); // Close the menu on modal open
+    setIsMenuOpen(false);
   };
 
   const handleCloseModal = () => {
@@ -20,40 +20,62 @@ const MobileNavbar = ({ homeRef, aboutRef, skillsRef, servicesRef, projectsRef, 
   };
 
   return (
-    <div className="relative">
-      <button onClick={handleToggleMenu} className="flex items-center px-3 py-2 text-gray-700 dark:text-gray-200 focus:outline-none">
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
-        </svg>
-      </button>
-
-      {isMenuOpen && (
-        <div className="absolute right-0 z-50 w-48 py-2 mt-2 bg-white rounded-lg shadow-lg dark:bg-gray-800">
-          {['Home', 'About', 'Skills', 'Services', 'Projects', 'Certificates'].map((section, index) => (
-            <button
-              key={section}
-              onClick={() => {
-                scrollToSection([homeRef, aboutRef, skillsRef, servicesRef, projectsRef, certificatesRef][index]);
-                setIsMenuOpen(false); // Close menu after selection
-              }}
-              className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
-            >
-              {section}
-            </button>
-          ))}
+    <div>
+      <div className="fixed top-0 left-0 z-50 w-full h-20 bg-opacity-100 bg-gradient-to-r from-slate-200 via-slate-300 to-slate-400 dark:from-neutral-900 dark:to-neutral-950" style={{ fontFamily: "Montserrat, sans-serif" }}>
+        <div className="flex items-center justify-end h-full px-10">
 
           <button
-            className="block w-full px-4 py-2 text-sm text-white bg-gradient-to-r from-pink-600 to-purple-700 hover:bg-gradient-to-l"
-            onClick={handleOpenModal}
-          >
-            Contact Us
+            onClick={handleToggleMenu}
+            className="text-gray-800 dark:text-gray-200 focus:outline-none">
+            {isMenuOpen ? (
+              <RiCloseLine className="w-8 h-8" />
+            ) : (
+              <RiMenu3Line className="w-8 h-8" />
+            )}
           </button>
+        </div>
+      </div>
+
+
+      {isMenuOpen && (
+        <div className="fixed top-0 right-0 z-50 w-1/2 h-screen transition-transform duration-300 ease-in-out transform bg-opacity-100 shadow-lg bg-gradient-to-r from-slate-200 via-slate-300 to-slate-400 dark:from-neutral-900 dark:to-neutral-950" style={{ fontFamily: "Montserrat, sans-serif" }}>
+
+          <div className='flex justify-end p-5 px-9'>
+            <button
+              onClick={handleToggleMenu}
+              className="text-gray-800 dark:text-gray-200 focus:outline-none">
+              {isMenuOpen && (
+                <RiCloseLine className="w-9 h-9" />
+              )}
+            </button>
+          </div>
+
+          <div className="flex flex-col justify-start h-full mt-2">
+            {['Home', 'About', 'Skills', 'Services', 'Projects', 'Certificates'].map((section, index) => (
+              <button
+                key={section}
+                onClick={() => {
+                  scrollToSection([homeRef, aboutRef, skillsRef, servicesRef, projectsRef, certificatesRef][index]);
+                  setIsMenuOpen(false);
+                }}
+                className="block w-full px-6 py-4 text-lg font-semibold text-left text-gray-700 transition-all duration-300 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+              >
+                {section}
+              </button>
+            ))}
+            <div className='flex justify-start px-6 mt-4'>
+              <button
+                className='px-3 py-2 text-[15px] transition-transform duration-700 rounded-full shadow-sm cursor-pointer bg-gradient-to-r from-pink-600 to-purple-700 text-neutral-300 hover:scale-105'
+                onClick={handleOpenModal}>
+                Contact Us
+              </button>
+            </div>
+
+          </div>
         </div>
       )}
 
-      {isContactModalOpen && (
-        <ContactModal isOpen={isContactModalOpen} onClose={handleCloseModal} />
-      )}
+      {isContactModalOpen && <ContactModal isOpen={isContactModalOpen} onClose={handleCloseModal} />}
     </div>
   );
 };
