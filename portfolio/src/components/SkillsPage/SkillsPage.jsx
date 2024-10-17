@@ -7,7 +7,7 @@ const SkillsPage = () => {
   return (
     <>
       <div className='flex flex-col items-center justify-center h-full min-h-screen px-8'>
-        <div className='w-full max-w-4xl py-8 shadow-lg mt-30 rounded-3xl '>
+        <div className='w-full max-w-4xl py-8 mt-24 shadow-lg mt-30 md:mt-0 rounded-3xl '>
 
           <div className="md:p-4 ">
             <div className="">
@@ -21,7 +21,6 @@ const SkillsPage = () => {
                   <Skills key={skillIndex} skill={skill} />
                 ))
               ))}
-
             </div>
           </div>
         </div>
