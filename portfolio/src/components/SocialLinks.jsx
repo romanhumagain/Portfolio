@@ -6,7 +6,7 @@ import { BsTwitterX } from "react-icons/bs";
 const SocialLinks = () => {
   return (
     <div className='mt-3'>
-      <p className='text-lg font-medium text-slate-600 dark:text-neutral-400'>Find me on</p>
+      <p className='font-medium text-md md:text-lg text-slate-600 dark:text-neutral-400'>Find me on</p>
       <div className='flex items-center gap-5 mt-5'>
         
         <a

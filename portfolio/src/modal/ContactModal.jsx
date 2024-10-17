@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import toast from 'react-hot-toast';
 
 const ContactModal = ({ isOpen, onClose }) => {
   const [isModalOpen, setIsModalOpen] = useState(isOpen);
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState('');
+  const [formMessage, setFormMessage] = useState('');
 
   useEffect(() => {
     setIsModalOpen(isOpen);
@@ -12,23 +14,51 @@ const ContactModal = ({ isOpen, onClose }) => {
   const closeModal = () => {
     setIsModalOpen(false);
     onClose();
-    setEmail(''); 
-    setEmailError(''); 
+    setEmail('');
+    setEmailError('');
+    setFormMessage('');
   };
 
   const validateEmail = (email) => {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; 
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateEmail(email)) {
-      setEmailError('Please enter a valid email address.');
-      return;
-    }
     
-    closeModal();
+    const formData = new FormData(e.target);
+    formData.append('access_key', "ad9f78ce-04e6-4b39-85c0-d7c93d3a1b94");
+    const json = JSON.stringify(Object.fromEntries(formData));
+  
+    toast.promise(
+      fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: json,
+      }).then((response) => {
+        if (!response.ok) throw new Error('Failed to send');
+        return response.json();
+      }),
+      {
+        loading: 'Sending...',
+        success: <b>Successfully sent message!</b>,
+        error: <b>Something went wrong. Please try again.</b>,
+      }
+    )
+    .then((result) => {
+      if (result.success) {
+        closeModal(); 
+      } else {
+        toast.error("Something went wrong. Please try again.")
+      }
+    })
+    .catch((error) => {
+      setFormMessage('An error occurred while submitting the form.');
+    });
   };
 
   const handleBackdropClick = (e) => {
@@ -77,33 +107,36 @@ const ContactModal = ({ isOpen, onClose }) => {
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label className="font-serif text-gray-800 dark:text-gray-300" htmlFor="fullName">Full Name</label>
-            <input className="block w-full p-2 mt-1 bg-gray-200 dark:bg-neutral-700 dark:text-gray-300 focus:outline-none rounded-xl" type="text" id="fullName" required />
+            <input className="block w-full p-2 mt-1 bg-gray-200 dark:bg-neutral-700 dark:text-gray-300 focus:outline-none rounded-xl" type="text" id="name" name="name" required />
           </div>
 
           <div className="mb-4">
             <label className="font-serif text-gray-800 dark:text-gray-300" htmlFor="email">Email</label>
             <input
               className="block w-full p-2 mt-1 bg-gray-200 dark:bg-neutral-700 dark:text-gray-300 focus:outline-none rounded-xl"
-              type="text"
+              type="email"
               id="email"
+              name="email"
               required
               value={email}
               onChange={(e) => {
                 setEmail(e.target.value);
-                setEmailError(''); 
+                setEmailError('');
               }}
             />
-            {emailError && <p className="mt-1 text-sm text-red-500">{emailError}</p>} 
+            {emailError && <p className="mt-1 text-sm text-red-500">{emailError}</p>}
           </div>
 
           <div className="mb-4">
             <label className="font-serif text-gray-800 dark:text-gray-300" htmlFor="message">Message</label>
-            <textarea className="block w-full p-3 mt-1 bg-gray-200 h-28 dark:bg-neutral-700 dark:text-gray-300 focus:outline-none rounded-xl" id="message" required />
+            <textarea className="block w-full p-3 mt-1 bg-gray-200 h-28 dark:bg-neutral-700 dark:text-gray-300 focus:outline-none rounded-xl" id="message" name="message" required />
           </div>
 
           <button type="submit" className="w-full px-4 py-2 mt-4 font-semibold text-white transition duration-200 rounded-full text-md bg-gradient-to-r from-pink-600 to-purple-700">
             Submit
           </button>
+
+          {formMessage && <p className="mt-4 text-sm font-medium text-center text-gray-800 dark:text-gray-300">{formMessage}</p>}
         </form>
       </div>
     </div>

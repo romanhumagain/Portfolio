@@ -44,7 +44,6 @@ const HomePage = () => {
                 >
                   Download Resume <FaDownload />
                 </a>
-
               </div>
 
               <div className='mt-4'>
