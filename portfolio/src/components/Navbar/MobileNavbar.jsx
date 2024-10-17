@@ -52,7 +52,7 @@ const MobileNavbar = ({ homeRef, aboutRef, skillsRef, expertiseRef, projectsRef,
           </button>
         </div>
 
-        <div className="flex flex-col justify-start h-full mt-2">
+        <div className="flex flex-col justify-start h-full mt-1">
           {['Home', 'About', 'Skills', 'Expertise', 'Projects', 'Certificates'].map((section, index) => (
             <button
               key={section}
@@ -60,14 +60,14 @@ const MobileNavbar = ({ homeRef, aboutRef, skillsRef, expertiseRef, projectsRef,
                 scrollToSection([homeRef, aboutRef, skillsRef, expertiseRef, projectsRef, certificatesRef][index]);
                 setIsMenuOpen(false);
               }}
-              className="block w-full px-6 py-4 font-semibold text-left text-gray-700 transition-all duration-300 text-md dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="block w-full px-6 py-[15px] font-semibold text-left text-gray-700 transition-all duration-300 text-md dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               {section}
             </button>
           ))}
           <div className='flex justify-start px-6 mt-4'>
             <button
-              className='px-3 py-2 text-[15px] font-semibold transition-transform duration-700 rounded-full shadow-sm cursor-pointer bg-gradient-to-r from-pink-600 to-purple-700 text-neutral-300 hover:scale-105'
+              className='px-3 py-[5px] text-[15px] font-semibold transition-transform duration-700 rounded-full shadow-sm cursor-pointer bg-gradient-to-r from-pink-600 to-purple-700 text-neutral-300 hover:scale-105'
               onClick={handleOpenModal}>
               Contact Us
             </button>

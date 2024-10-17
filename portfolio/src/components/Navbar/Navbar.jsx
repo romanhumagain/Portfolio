@@ -65,10 +65,10 @@ const Navbar = ({ homeRef, aboutRef, skillsRef, expertiseRef, projectsRef, certi
             );
           })}
           <li
-            className='px-3 py-[2px] text-[14px] transition-transform duration-700 rounded-full shadow-sm cursor-pointer bg-gradient-to-r from-pink-600 to-purple-700 text-neutral-300 hover:scale-105'
+            className='px-3 py-[3px] text-[15px] transition-transform duration-700 rounded-full shadow-sm cursor-pointer bg-gradient-to-r from-pink-600 to-purple-700 text-neutral-300 hover:scale-105'
             onClick={handleOpenModal}
           >
-            Contact Us
+            Contact
           </li>
         </ul>
       </div>

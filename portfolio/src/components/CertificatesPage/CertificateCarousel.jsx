@@ -19,11 +19,11 @@ const CertificateCarousel = () => {
 
   return (
     <div className="relative w-full max-w-full mx-auto group">
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center ">
         <img
           src={certificates[currentIndex].image}
           alt={certificates[currentIndex].alt}
-          className="h-64 max-w-xs rounded-lg shadow-lg sm:max-w-md md:max-w-lg lg:max-w-xl sm:h-80 md:h-96"
+          className="h-[240px] max-w-[300px] rounded-lg shadow-lg sm:max-w-[440px] md:max-w-lg lg:max-w-xl sm:h-80 md:h-96"
         />
       </div>
 
