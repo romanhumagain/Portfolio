@@ -95,13 +95,13 @@ const ContactModal = ({ isOpen, onClose }) => {
           <span className="sr-only">Close modal</span>
         </button>
         <div className='mb-6'>
-          <h2 className="mt-1 text-3xl font-bold text-transparent text-start bg-gradient-to-r from-pink-600 to-purple-700 bg-clip-text">
-            Contact Us
+          <h2 className="mt-1 text-2xl font-bold text-transparent md:text-3xl text-start bg-gradient-to-r from-pink-600 to-purple-700 bg-clip-text">
+            Contact
           </h2>
-          <p className='mt-2 font-light text-gray-600 text-start text-md dark:text-gray-400'>
+          <p className='mt-2 text-[15px] font-light text-gray-600 text-start md:text-md dark:text-gray-400'>
             Feel free to reach out to me directly via email at <a href="mailto:romanhumagain@gmail.com" className="text-purple-700 underline dark:text-purple-500">romanhumagain@gmail.com</a> or simply fill out the contact form below.
           </p>
-          <p className='mt-1 font-medium text-gray-600 text-start text-md dark:text-gray-400'>Please leave a valid Email to get a reply.</p>
+          <p className='mt-1 font-medium text-gray-600 text-start text-[15px] md:text-md dark:text-gray-400'>Please leave a valid Email to get a reply.</p>
         </div>
 
         <form onSubmit={handleSubmit}>

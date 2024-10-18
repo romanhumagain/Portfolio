@@ -52,7 +52,7 @@ const MobileNavbar = ({ homeRef, aboutRef, skillsRef, expertiseRef, projectsRef,
           </button>
         </div>
 
-        <div className="flex flex-col justify-start h-full mt-1">
+        <div className="flex flex-col justify-start h-full">
           {['Home', 'About', 'Skills', 'Expertise', 'Projects', 'Certificates'].map((section, index) => (
             <button
               key={section}
@@ -67,9 +67,9 @@ const MobileNavbar = ({ homeRef, aboutRef, skillsRef, expertiseRef, projectsRef,
           ))}
           <div className='flex justify-start px-6 mt-4'>
             <button
-              className='px-3 py-[5px] text-[15px] font-semibold transition-transform duration-700 rounded-full shadow-sm cursor-pointer bg-gradient-to-r from-pink-600 to-purple-700 text-neutral-300 hover:scale-105'
+              className='px-4 py-[5px] text-[15px] font-semibold transition-transform duration-700 rounded-full shadow-sm cursor-pointer bg-gradient-to-r from-pink-600 to-purple-700 text-neutral-300 hover:scale-105'
               onClick={handleOpenModal}>
-              Contact Us
+              Contact
             </button>
           </div>
         </div>
