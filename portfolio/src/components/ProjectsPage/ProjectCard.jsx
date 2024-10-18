@@ -37,8 +37,8 @@ const ProjectCard = () => {
 
         <div className='flex flex-col items-center justify-center col-span-4 gap-5 '>
           <div className='flex flex-col justify-center gap-5 '>
-            <img src={food_delivery_app_img} className='cursor-pointer w-[70px] transition-transform duration-700 rounded-lg h-[136px] hover:scale-105 md:h-48 md:w-24' alt='Food Delivery' />
-            <img src={news_app} className='cursor-pointer w-[68px] transition-transform duration-700 rounded-lg h-[136px] hover:scale-105 md:h-48 md:w-24' alt='News App' />
+            <img src={food_delivery_app_img} className='cursor-pointer w-[67px] transition-transform duration-700 rounded-lg h-[136px] hover:scale-105 md:h-48 md:w-24' alt='Food Delivery' />
+            <img src={news_app} className='cursor-pointer w-[65px] transition-transform duration-700 rounded-lg h-[136px] hover:scale-105 md:h-48 md:w-24' alt='News App' />
           </div>
         </div>
 

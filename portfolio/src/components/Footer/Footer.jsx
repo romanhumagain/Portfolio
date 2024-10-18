@@ -8,10 +8,10 @@ const Footer = () => {
       <div className="container flex flex-col items-center px-4 mx-auto mb-3 space-y-2">
         
         <div className="flex mb-2 space-x-6">
-          <a href={socialLinks.github} className="text-[25px] md:text-3xl hover:text-gray-900 dark:hover:text-white hover:scale-110 transition-transform duration-700">
+          <a href={socialLinks.github} className="text-[25px] md:text-3xl text-gray-800 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-110 transition-transform duration-700">
             <FaGithub />
           </a>
-          <a href={socialLinks.linkedin} className="text-[25px] md:text-3xl hover:text-gray-900 dark:hover:text-white hover:scale-110 transition-transform duration-700">
+          <a href={socialLinks.linkedin} className="text-[25px] md:text-3xl text-gray-800 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:scale-110 transition-transform duration-700">
             <FaLinkedin />
           </a>
         </div>
