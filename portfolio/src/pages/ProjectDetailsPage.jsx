@@ -12,7 +12,7 @@ const ProjectDetailsPage = () => {
           Project Details Unavailable
         </h1>
         <p className="mt-4 text-gray-600 dark:text-gray-400">
-          The details for this project are not yet available. Please check back later for updates.
+          The project details are not yet available. Please check back later for updates.
         </p>
         <p className="mt-2 font-medium text-gray-600 dark:text-gray-400">
           We appreciate your patience!

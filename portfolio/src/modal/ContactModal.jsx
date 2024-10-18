@@ -23,11 +23,21 @@ const ContactModal = ({ isOpen, onClose }) => {
     const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return regex.test(email);
   };
-
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+  
     const formData = new FormData(e.target);
+    const email = formData.get('email');
+  
+    if (!validateEmail(email)) {
+      setEmailError("Please enter a valid email.")
+      toast.error('Invalid email format.');
+      
+      return; 
+    }
+  
+    // Append access key
     formData.append('access_key', "ad9f78ce-04e6-4b39-85c0-d7c93d3a1b94");
     const json = JSON.stringify(Object.fromEntries(formData));
   
@@ -51,15 +61,16 @@ const ContactModal = ({ isOpen, onClose }) => {
     )
     .then((result) => {
       if (result.success) {
-        closeModal(); 
+        closeModal();
       } else {
-        toast.error("Something went wrong. Please try again.")
+        toast.error("Something went wrong. Please try again.");
       }
     })
     .catch((error) => {
       setFormMessage('An error occurred while submitting the form.');
     });
   };
+  
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -95,7 +106,7 @@ const ContactModal = ({ isOpen, onClose }) => {
           <span className="sr-only">Close modal</span>
         </button>
         <div className='mb-6'>
-          <h2 className="mt-1 text-2xl font-bold text-transparent md:text-3xl text-start bg-gradient-to-r from-pink-600 to-purple-700 bg-clip-text">
+          <h2 className="mt-1 text-[25px] font-bold text-transparent md:text-3xl text-start bg-gradient-to-r from-pink-600 to-purple-700 bg-clip-text">
             Contact
           </h2>
           <p className='mt-2 text-[15px] font-light text-gray-600 text-start md:text-md dark:text-gray-400'>
@@ -114,7 +125,7 @@ const ContactModal = ({ isOpen, onClose }) => {
             <label className="font-serif text-gray-800 dark:text-gray-300" htmlFor="email">Email</label>
             <input
               className="block w-full p-2 mt-1 bg-gray-200 dark:bg-neutral-700 dark:text-gray-300 focus:outline-none rounded-xl"
-              type="email"
+              type="text"
               id="email"
               name="email"
               required
@@ -132,7 +143,7 @@ const ContactModal = ({ isOpen, onClose }) => {
             <textarea className="block w-full p-3 mt-1 bg-gray-200 h-28 dark:bg-neutral-700 dark:text-gray-300 focus:outline-none rounded-xl" id="message" name="message" required />
           </div>
 
-          <button type="submit" className="w-full px-4 py-2 mt-4 font-semibold text-white transition duration-200 rounded-full text-md bg-gradient-to-r from-pink-600 to-purple-700">
+          <button type="submit" className="w-full px-4 py-1 mt-4 font-semibold text-white transition duration-200 rounded-full md:py-2 text-md bg-gradient-to-r from-pink-600 to-purple-700">
             Submit
           </button>
 
