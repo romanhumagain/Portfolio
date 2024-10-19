@@ -143,7 +143,7 @@ const ContactModal = ({ isOpen, onClose }) => {
             <textarea className="block w-full p-3 mt-1 bg-gray-200 h-28 dark:bg-neutral-700 dark:text-gray-300 focus:outline-none rounded-xl" id="message" name="message" required />
           </div>
 
-          <button type="submit" className="w-full px-4 py-1 mt-4 font-semibold text-white transition duration-200 rounded-full md:py-2 text-md bg-gradient-to-r from-pink-600 to-purple-700">
+          <button type="submit" className="w-full px-4 py-[6px] mt-4 font-semibold text-white transition duration-200 rounded-full md:py-2 text-md bg-gradient-to-r from-pink-600 to-purple-700">
             Submit
           </button>
 
